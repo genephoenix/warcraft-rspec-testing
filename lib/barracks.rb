@@ -36,4 +36,22 @@ class Barracks
       @footman = Footman.new
     end
   end
+
+  def train_peasant
+    if can_train_peasant? == true
+      @gold -= 90
+      @food -= 5
+      @peasant = Peasant.new
+    end
+  end
+
+  def can_train_peasant?
+    if food <= 5
+      return false
+    end
+    if gold <= 90
+      return false
+    end
+    true
+  end
 end
