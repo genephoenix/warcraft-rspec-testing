@@ -11,8 +11,13 @@ class Footman < Unit
   end
 
   def attack!(enemy)
-    enemy.damage(10)
   # enemy.health_points -= attack_power
+    if enemy.is_a?(Barracks)
+      amount_of_damage = (attack_power.to_i/2).ceil
+      enemy.damage(amount_of_damage)
+    else
+      enemy.damage(10)
+    end
   end
 
   def damage(attack_power)

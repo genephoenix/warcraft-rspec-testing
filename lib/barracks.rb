@@ -1,7 +1,7 @@
 require_relative 'footman'
 
 class Barracks
-  attr_reader :gold , :food
+  attr_reader :gold, :food, :lumber, :health_points
 
   # # attr_reader :food
   # # defines the method below
@@ -17,6 +17,8 @@ class Barracks
   def initialize
     @gold = 1000
     @food = 80
+    @lumber = 500
+    @health_points = 500
   end
 
   def can_train_footman?
@@ -54,4 +56,9 @@ class Barracks
     end
     true
   end
+
+  def damage(enemy_attack_power)
+    @health_points -= enemy_attack_power
+  end
+  
 end
